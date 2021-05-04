@@ -1,24 +1,23 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    name: 'home',
+    component: () => import(/* webpackChunkName: "home" */ '../views/Home.vue')
   },
   {
-    path: '/about',
-    name: 'About',
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    path: '/nosotros',
+    name: 'nosotros',
+    component: () => import(/* webpackChunkName: "nosotros" */ '../views/Nosotros.vue')
   },
   {
-    path: '/quienessomos',
-    name: 'QuienesSomos',
-    component: () => import(/* webpackChunkName: "about" */ '../views/QuienesSomos.vue')
+    path: '/miembros',
+    name: 'miembros',
+    component: () => import(/* webpackChunkName: "miembros" */ '../views/Miembros.vue')
   }
 ]
 
@@ -26,6 +25,6 @@ const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes
-})
+});
 
-export default router
+export default router;
